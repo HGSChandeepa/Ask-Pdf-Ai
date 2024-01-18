@@ -1,4 +1,4 @@
-# ask_pdf
+<!-- # ask_pdf
 
 This repository contains code how to build a PDF.ai clone with Flutter,,
 Pinecone Vector Database, Langchain and ChatGPT without any backend or python.
@@ -9,4 +9,4 @@ Pinecone Vector Database, Langchain and ChatGPT without any backend or python.
 
 ## App Images
 
-![App Image](/resources/mock1.png)
+![App Image](/resources/mock1.png) -->

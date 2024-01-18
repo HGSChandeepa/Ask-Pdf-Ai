@@ -27,6 +27,11 @@ dependencies:
       url: https://github.com/tayormi/langchain_dart
       ref: 49d39e4615dfcdadbd4c921d02a5e6315c577af4
       path: packages/langchain_pinecone
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.14.0
+  firebase_auth: ^4.16.0
+  firebase_storage: ^11.6.0
+  image_picker: ^1.0.7
 
 dependency_overrides:
   langchain:

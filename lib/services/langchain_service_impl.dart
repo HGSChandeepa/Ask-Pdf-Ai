@@ -32,6 +32,7 @@ final langchainServiceProvider = Provider<LangChainService>((ref) {
 
   final openAI = OpenAI(
     apiKey: openAIApiKey,
+    model: "gpt-3.5-turbo-instruct",
   );
 
   return LangchainServiceImpl(

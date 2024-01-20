@@ -55,8 +55,7 @@ class IndexNotifier extends _$IndexNotifier {
     }
   }
 
-
- // get the pdf from the location and get the text inside the pdf and store as string and return the path
+  // get the pdf from the location and get the text inside the pdf and store as string and return the path
   Future<String> convertPdfToTextAndSaveInDir() async {
     try {
       // Load the PDF document.

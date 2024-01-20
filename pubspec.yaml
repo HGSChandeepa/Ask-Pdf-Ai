@@ -54,6 +54,6 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/
+    - assets/chat.png
     - assets/pdf/
     - .env

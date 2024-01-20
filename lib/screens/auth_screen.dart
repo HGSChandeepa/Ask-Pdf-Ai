@@ -119,21 +119,38 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Ask Pdf',
+          style: TextStyle(
+            color: Color(0xFF0047FF),
+            fontSize: 30,
+            fontWeight: FontWeight.w900,
+          ),
+        ),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Container(
-              //   margin: const EdgeInsets.only(
-              //       top: 30, bottom: 20, left: 20, right: 20),
-              //   width: 300,
-              //   child: Image.asset(
-              //     "assets/chat.png",
-              //   ),
-              // ),
+              Container(
+                margin: const EdgeInsets.only(
+                    top: 30, bottom: 20, left: 20, right: 20),
+                width: 300,
+                child: Image.asset(
+                  "assets/chat.png",
+                ),
+              ),
 
               //form
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: const Text(
+                  'Chat with any PDF document From legal agreements to financial reports, PDF.ai brings your documents to life. You can ask questions, get summaries, find information, and more.',
+                  style: TextStyle(color: Colors.black45),
+                ),
+              ),
               Card(
                 color: const Color.fromARGB(255, 252, 251, 251),
                 margin: const EdgeInsets.all(20),
@@ -242,13 +259,14 @@ class _AuthScreenState extends State<AuthScreen> {
                           ElevatedButton(
                             onPressed: _formSubmit,
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.amber, elevation: 0),
+                                backgroundColor: Color(0xFF0047FF),
+                                elevation: 0),
                             child: _isLoading
                                 ? const CircularProgressIndicator()
                                 : Text(
                                     _isLogin ? "Login" : "Signin",
                                     style: const TextStyle(
-                                        color: Colors.black,
+                                        color: Colors.white,
                                         fontWeight: FontWeight.w600),
                                   ),
                           ),

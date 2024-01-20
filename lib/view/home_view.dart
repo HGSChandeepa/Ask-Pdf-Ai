@@ -38,112 +38,114 @@ class HomeView extends HookConsumerWidget {
             padding: const EdgeInsets.all(20.0),
             child: Form(
               key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Chat with any PDF document From legal agreements to financial reports, PDF.ai brings your documents to life. You can ask questions, get summaries, find information, and more.',
-                    style: TextStyle(color: Colors.black45),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: Colors.orange),
-                      backgroundColor: Color(Colors.orangeAccent.value),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Chat with any PDF document From legal agreements to financial reports, PDF.ai brings your documents to life. You can ask questions, get summaries, find information, and more.',
+                      style: TextStyle(color: Colors.black45),
                     ),
-                    onPressed: () {
-                      ref
-                          .read(indexNotifierProvider.notifier)
-                          .createAndUploadPineConeIndex();
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            Icons.upload,
-                            color: Colors.white,
-                          ),
-                          SizedBox(width: 10),
-                          Text(
-                            'Upload PDF',
-                            style: TextStyle(color: Colors.white),
-                          )
-                        ],
-                      ),
+                    SizedBox(
+                      height: 30,
                     ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  TextField(
-                    controller: queryTextCtrl,
-                    decoration: InputDecoration(
-                      hintText: 'Enter a query',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(
-                            30.0), // Adjust the radius as needed
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 30),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF0047FF),
+                    OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        side: const BorderSide(color: Colors.orange),
+                        backgroundColor: Color(Colors.orangeAccent.value),
                       ),
                       onPressed: () {
-                        if (!_formKey.currentState!.validate()) return;
                         ref
-                            .read(queryNotifierProvider.notifier)
-                            .queryPineConeIndex(queryTextCtrl.text);
+                            .read(indexNotifierProvider.notifier)
+                            .createAndUploadPineConeIndex();
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: const Text('Ask'),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.upload,
+                              color: Colors.white,
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                              'Upload PDF',
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                  const SizedBox(height: 20),
-                  if (queryState.state == QueryEnum.loading)
-                    const LinearProgressIndicator(),
-                  if (queryState.state == QueryEnum.loaded)
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                          width: MediaQuery.of(context).size.width * 1,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: Color(0xFFD1A300),
-                              width: 2,
-                            ),
-                            color: Color.fromARGB(104, 242, 190, 0),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Pdf Ai Answering...",
-                                  style: TextStyle(
-                                      color: Color(0xFFD1A300),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
-                                ),
-                                const SizedBox(height: 20),
-                                Text(queryState.result),
-                              ],
-                            ),
-                          )),
+                    SizedBox(
+                      height: 30,
                     ),
-                ],
+                    TextField(
+                      controller: queryTextCtrl,
+                      decoration: InputDecoration(
+                        hintText: 'Enter a query',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              30.0), // Adjust the radius as needed
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFF0047FF),
+                        ),
+                        onPressed: () {
+                          if (!_formKey.currentState!.validate()) return;
+                          ref
+                              .read(queryNotifierProvider.notifier)
+                              .queryPineConeIndex(queryTextCtrl.text);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: const Text('Ask'),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    const SizedBox(height: 20),
+                    if (queryState.state == QueryEnum.loading)
+                      const LinearProgressIndicator(),
+                    if (queryState.state == QueryEnum.loaded)
+                      Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                            width: MediaQuery.of(context).size.width * 1,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: Color(0xFFD1A300),
+                                width: 2,
+                              ),
+                              color: Color.fromARGB(104, 242, 190, 0),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Pdf Ai Answering...",
+                                    style: TextStyle(
+                                        color: Color(0xFFD1A300),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                  const SizedBox(height: 20),
+                                  Text(queryState.result),
+                                ],
+                              ),
+                            )),
+                      ),
+                  ],
+                ),
               ),
             ),
           ),
